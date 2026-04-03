@@ -948,7 +948,7 @@ ${skillReminder}
                         <li><strong>初始化</strong>：在对话框输入想写的故事类型（如“修仙”、“都市”）。AI 会引导你确认【书名】、【世界观】和【核心梗概】。</li>
                         <li><strong>参数配置</strong>：点击右上角 <SettingsIcon/>，设置【API Key】（支持 OpenAI/DeepSeek 等）、【总章节数】和【单章字数】。</li>
                         <li><strong>生成大纲</strong>：让 AI 生成角色档案、势力设定和章节大纲。这些内容会自动归档到顶部的“数据库”和“章节”标签页中。</li>
-                        <li><strong>批量写作</strong>：在“章节正文”页底部，点击【生成目录】 -> 【撰写 X 章】，AI 将自动连续创作。</li>
+                        <li><strong>批量写作</strong>：在“章节正文”页底部，点击【生成目录】 &rarr; 【撰写 X 章】，AI 将自动连续创作。</li>
                     </ol>
                   </section>
 
