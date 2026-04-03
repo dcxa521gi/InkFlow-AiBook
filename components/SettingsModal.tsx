@@ -77,7 +77,14 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, settings
   };
   
   const applyPreset = (preset: typeof PRESETS[0]) => {
-      if (preset.name === '自定义') return;
+      if (preset.name === '自定义') {
+          setLocalSettings(prev => ({
+              ...prev,
+              openaiBaseUrl: '',
+              openaiModel: ''
+          }));
+          return;
+      }
       setLocalSettings(prev => ({
           ...prev,
           openaiBaseUrl: preset.url,
@@ -198,7 +205,9 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, settings
                             key={preset.name}
                             onClick={() => applyPreset(preset)}
                             className={`px-2 py-1.5 text-xs rounded-md border transition-all ${
-                                localSettings.openaiBaseUrl === preset.url && preset.name !== '自定义'
+                                (preset.name === '自定义' 
+                                    ? (localSettings.openaiBaseUrl === '' && localSettings.openaiModel === '')
+                                    : (localSettings.openaiBaseUrl === preset.url && localSettings.openaiModel === preset.model))
                                 ? 'bg-indigo-100 dark:bg-indigo-900/40 border-indigo-500 text-indigo-700 dark:text-indigo-300 font-bold'
                                 : 'bg-white dark:bg-gray-800 ec:bg-white border-gray-200 dark:border-gray-700 ec:border-ec-border text-gray-600 dark:text-gray-400 ec:text-ec-text hover:border-indigo-300 dark:hover:border-indigo-600'
                             }`}
